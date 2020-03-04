@@ -48,11 +48,15 @@ const useStyles = makeStyles((theme: Theme) =>
     controls: {
       alignSelf: "center",
       justifySelf: "center",
-      minWidth: 80
+      minWidth: 80,
+      position: "relative"
     },
     clock: {
       fontSize: 12,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      position: "absolute",
+      width: "100%",
+      bottom: -16
     }
   })
 );
