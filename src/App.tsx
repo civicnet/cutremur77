@@ -11,19 +11,17 @@ import {
   ListItemIcon,
   ListItemText,
   Switch,
-  useTheme,
-  makeStyles,
+  // useTheme,
   Button,
+  makeStyles,
   Typography
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-
 import { withRouter, RouteComponentProps, Route, Link } from "react-router-dom";
 import { loadCSS } from "fg-loadcss";
 import routes from "./routes";
+
 const drawerWidth = 240;
 export const APP_BAR_COLOR = "#222f3e";
 
@@ -80,7 +78,8 @@ const useStyles = makeStyles(theme => ({
     width: 260,
     zIndex: 100,
     color: "#AFA294",
-    textAlign: "left"
+    textAlign: "left",
+    pointerEvents: "none"
   },
   toolbar: {
     display: "flex",
@@ -125,17 +124,7 @@ const App: React.FC<RouteComponentProps> = props => {
   const [animationFrame, setAnimationFrame] = React.useState(0);
 
   const classes = useStyles();
-  const theme = useTheme();
-
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setIsDrawerOpen(false);
-  };
 
   const toggleDrawer = () => {
     isDrawerOpen ? setIsDrawerOpen(false) : setIsDrawerOpen(true);
@@ -165,7 +154,8 @@ const App: React.FC<RouteComponentProps> = props => {
         }}
       >
         <div className={classes.toolbar}>
-          <a
+          <Button
+            component="a"
             onClick={toggleDrawer}
             /* href="https://civicnet.ro" */
             style={{ display: "flex", flex: 1, justifyContent: "center" }}
@@ -183,7 +173,7 @@ const App: React.FC<RouteComponentProps> = props => {
                 alt="CivicNet Logo"
               />
             )}
-          </a>
+          </Button>
           {/* <IconButton onClick={toggleDrawer}>
             {!isDrawerOpen ? (
               <ChevronRightIcon />

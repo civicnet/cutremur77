@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
-import MouseEventHandler from "../../lib/MouseEventHandler";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

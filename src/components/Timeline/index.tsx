@@ -22,7 +22,6 @@ import {
 import { AppState } from "../../store";
 import { UIState, TICK_DURATION } from "../../store/ui/types";
 import { connect } from "react-redux";
-import throttle from "lodash.throttle";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

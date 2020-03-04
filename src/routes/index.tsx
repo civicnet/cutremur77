@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@material-ui/core";
-import About from "../containers/AnimationContainer";
+// import About from "../containers/AnimationContainer";
 
 const routes = [
   {

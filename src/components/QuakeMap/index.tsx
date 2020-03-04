@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core";
+// import { makeStyles, Theme, createStyles } from "@material-ui/core";
 
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
@@ -12,7 +12,7 @@ import { DataState, WaveType } from "../../store/data/types";
 import { TICK_DURATION } from "../../store/ui/types";
 import * as d3 from "d3-ease";
 
-const useStyles = makeStyles((theme: Theme) =>
+/* const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: 3,
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "absolute"
     }
   })
-);
+); */
 
 const mapStateToProps = (state: AppState) => ({
   data: state.data
@@ -50,7 +50,7 @@ interface Props {
 }
 
 export const ConnectedQuakeMap: React.FC<Props> = (props: Props) => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const { fetchWaveAction } = props;
   useEffect(() => {
