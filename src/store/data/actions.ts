@@ -14,6 +14,9 @@ import { ThunkAction } from "redux-thunk";
 import oboe from "oboe";
 import { OrderedSet } from "immutable";
 
+const getJsonPath = (file: string) =>
+  `https://cdn.jsdelivr.net/gh/civicnet/cutremur77@latest/public/data/${file}`;
+
 export function receiveAcceleration(
   direction: AccelerationDirection,
   values: AccelerationValues
@@ -37,7 +40,7 @@ export const fetchAcceleration = (): ThunkAction<
 
   Object.keys(AccelerationDirection).forEach(key => {
     let count = 0;
-    oboe(`/data/${key.toLocaleLowerCase()}_min.json`)
+    oboe(getJsonPath(`${key.toLocaleLowerCase()}_min.json`))
       .node("!.*", (val: any) => {
         // Only consider every 10th value (each tick is 0.005sec)
         if (count === 10) {
@@ -82,11 +85,11 @@ export const fetchWave = (): ThunkAction<
     return Promise.resolve();
   }
 
-  oboe(`/data/travel_time_p.geojson`).done(data => {
+  oboe(getJsonPath(`travel_time_p.geojson`)).done(data => {
     dispatch(receiveWave(WaveType.P, data));
   });
 
-  oboe(`/data/travel_time_s.geojson`).done(data => {
+  oboe(getJsonPath(`travel_time_s.geojson`)).done(data => {
     dispatch(receiveWave(WaveType.S, data));
   });
 };

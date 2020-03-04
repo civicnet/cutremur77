@@ -2,6 +2,7 @@
   "name": "cutremur",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://civicnet.github.io/cutremur77",
   "dependencies": {
     "@deck.gl/aggregation-layers": "^8.0.16",
     "@deck.gl/core": "^8.0.16",
