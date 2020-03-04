@@ -14,7 +14,8 @@ import {
   // useTheme,
   Button,
   makeStyles,
-  Typography
+  Typography,
+  Icon
 } from "@material-ui/core";
 import clsx from "clsx";
 
@@ -117,6 +118,27 @@ const useStyles = makeStyles(theme => ({
     fontSize: "3em",
     lineHeight: 0.9,
     fontWeight: 700
+  },
+  toggleButton: {
+    position: "absolute",
+    right: 35,
+    top: 35,
+    width: 120,
+    height: 120,
+    borderRadius: "50%",
+    zIndex: 100,
+    background: "#5C574D",
+    border: "1px solid #9C9489",
+    color: "#9C9489"
+  },
+  toggleButtonLabel: {
+    flexDirection: "column"
+  },
+  toggleButtonText: {
+    lineHeight: 1,
+    marginTop: 12,
+    fontSize: 16,
+    fontWeight: "bold"
   }
 }));
 
@@ -241,6 +263,22 @@ const App: React.FC<RouteComponentProps> = props => {
               </Typography>
             </div>
           </div>
+
+          <Button
+            variant="contained"
+            color="inherit"
+            disableElevation
+            classes={{
+              label: classes.toggleButtonLabel,
+              root: classes.toggleButton
+            }}
+          >
+            <Icon
+              className="fas fa-map-marked-alt"
+              style={{ display: "block" }}
+            />
+            <div className={classes.toggleButtonText}>Vezi hărți</div>
+          </Button>
           <QuakeMap animationFrame={animationFrame} />
           <Timeline onAnimationFrame={setAnimationFrame} />
         </div>
