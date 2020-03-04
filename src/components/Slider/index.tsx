@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "inline-block",
       color: "#fff",
       fontSize: 12,
-      opacity: 0.7
+      opacity: 0.7,
+      cursor: "pointer"
     },
     barLabelsUnit: {
       fontSize: 10
@@ -44,6 +45,7 @@ interface Props {
   progress: number;
   children?: React.ReactElement;
   timeElapsed: number;
+  jumpToTime: (_: number) => void;
 }
 
 export const Slider: React.FC<Props> = (props: Props) => {
@@ -57,6 +59,7 @@ export const Slider: React.FC<Props> = (props: Props) => {
           const labelVal = idx * 10;
           return (
             <Typography
+              onClick={() => props.jumpToTime(labelVal)}
               className={clsx(
                 classes.barLabels,
                 labelVal < props.timeElapsed ? classes.activeBarLabel : null

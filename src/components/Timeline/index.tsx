@@ -131,6 +131,15 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
 
   const clock = new Date("1977-03-04 21:21:11");
   clock.setSeconds(clock.getSeconds() + timeElapsed);
+
+  const jumpToTime = (time: number) => {
+    if (props.ui.isPlaying) {
+      props.pause();
+    }
+    setAnimationFrame(time / FRAME_DURATION);
+    props.onAnimationFrame(animationFrame);
+  };
+
   return (
     <>
       <Card className={classes.debug}>
@@ -166,7 +175,11 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
               </Typography>
             </Typography>
           </div>
-          <Slider progress={percentDone} timeElapsed={timeElapsed}>
+          <Slider
+            progress={percentDone}
+            timeElapsed={timeElapsed}
+            jumpToTime={jumpToTime}
+          >
             <LineChart
               style={{
                 position: "absolute",
