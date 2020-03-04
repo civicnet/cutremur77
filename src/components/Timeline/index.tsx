@@ -22,6 +22,8 @@ import {
 import { AppState } from "../../store";
 import { UIState, TICK_DURATION } from "../../store/ui/types";
 import { connect } from "react-redux";
+import ReactSound from "react-sound";
+// import audio from 'audio.mp3';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -99,6 +101,8 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
 
   const [animationFrame, setAnimationFrame] = React.useState(600);
+  const [soundStartPosition, setSoundStartPosition] = React.useState(0);
+
   //
   React.useEffect(() => {
     props.onAnimationFrame(animationFrame);
@@ -129,10 +133,21 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
   const accelDataWidth = (47 * 100) / TOTAL_DURATION;
   const accelDataPadding = (33 * 100) / TOTAL_DURATION;
 
-  const clock = new Date("1977-03-04 21:21:11");
+  const soundLength = (26 * 100) / TOTAL_DURATION;
+  const soundPadding = (42 * 100) / TOTAL_DURATION;
+
+  const soundProgressSeconds = percentDone - soundPadding;
+  // console.log(soundProgressSeconds);
+  const isSoundPlaying =
+    soundProgressSeconds > 0 && soundProgressSeconds < 26 && props.ui.isPlaying;
+  // const soundProgressMs = soundProgressSeconds * TOTAL_DURATION * 1000;
+
+  const clock = new Date("1977-03-04 21:20:26");
   clock.setSeconds(clock.getSeconds() + timeElapsed);
 
   const jumpToTime = (time: number) => {
+    // setSoundStartPosition(soundProgressPercentage > 0 && soundProgressPercentage < 100 ? soundProgressMs : 0);
+
     if (props.ui.isPlaying) {
       props.pause();
     }
@@ -180,14 +195,36 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
             timeElapsed={timeElapsed}
             jumpToTime={jumpToTime}
           >
-            <LineChart
-              style={{
-                position: "absolute",
-                top: 0,
-                left: `${accelDataPadding}%`,
-                width: `${accelDataWidth}%`
-              }}
-            />
+            <div>
+              <LineChart
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: `${accelDataPadding}%`,
+                  width: `${accelDataWidth}%`
+                }}
+              />
+              <div
+                style={{
+                  height: 2,
+                  background: "#fff",
+                  width: `${soundLength}%`,
+                  left: `${soundPadding}%`,
+                  position: "absolute"
+                }}
+              >
+                <ReactSound
+                  url={process.env.PUBLIC_URL + "/data/audio.mp3"}
+                  playStatus={isSoundPlaying ? "PLAYING" : "PAUSED"}
+                  autoLoad={true}
+                  loop={false}
+                  volume={20}
+                  playFromPosition={
+                    isSoundPlaying ? undefined : soundProgressSeconds * 1000
+                  }
+                />
+              </div>
+            </div>
           </Slider>
         </div>
       </Paper>
