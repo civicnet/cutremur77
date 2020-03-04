@@ -137,7 +137,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
   const soundPadding = (42 * 100) / TOTAL_DURATION;
 
   const soundProgressSeconds = percentDone - soundPadding;
-  console.log(soundProgressSeconds);
+  // console.log(soundProgressSeconds);
   const isSoundPlaying =
     soundProgressSeconds > 0 && soundProgressSeconds < 33 && props.ui.isPlaying;
   // const soundProgressMs = soundProgressSeconds * TOTAL_DURATION * 1000;
