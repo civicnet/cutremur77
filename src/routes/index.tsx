@@ -11,25 +11,25 @@ const routes = [
     text: "Atlas"
   },
   {
-    path: "/despre",
+    path: "/",
     main: () => <div>Despre</div>,
     icon: <Icon className="fal fa-question-circle" fontSize="small" />,
     text: "Ghid"
   },
   {
-    path: "/changelog",
+    path: "/",
     main: () => <div>Change</div>,
     icon: <Icon className="fal fa-layer-group" fontSize="small" />,
     text: "Seturi de date"
   },
   {
-    path: "/changelog",
+    path: "/",
     main: () => <div>Change</div>,
     icon: <Icon className="fal fa-info-circle" fontSize="small" />,
     text: "Despre"
   },
   {
-    path: "/changelog",
+    path: "/",
     main: () => <div>Change</div>,
     icon: <Icon className="fal fa-at" fontSize="small" />,
     text: "Contact"

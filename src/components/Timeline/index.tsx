@@ -7,9 +7,9 @@ import {
   makeStyles,
   createStyles,
   Theme,
-  Typography,
-  CardContent,
-  Card
+  Typography
+  /* CardContent,
+  Card */
 } from "@material-ui/core";
 import { LineChart } from "../LineChart";
 import { Slider } from "../Slider";
@@ -101,7 +101,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
 
   const [animationFrame, setAnimationFrame] = React.useState(600);
-  const [soundStartPosition, setSoundStartPosition] = React.useState(0);
+  // const [soundStartPosition, setSoundStartPosition] = React.useState(0);
 
   //
   React.useEffect(() => {
