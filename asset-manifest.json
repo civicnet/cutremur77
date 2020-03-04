@@ -1,22 +1,26 @@
 {
   "files": {
     "main.css": "/cutremur77/static/css/main.d1b05096.chunk.css",
-    "main.js": "/cutremur77/static/js/main.cc0e94fd.chunk.js",
-    "main.js.map": "/cutremur77/static/js/main.cc0e94fd.chunk.js.map",
+    "main.js": "/cutremur77/static/js/main.c971b1a5.chunk.js",
+    "main.js.map": "/cutremur77/static/js/main.c971b1a5.chunk.js.map",
     "runtime-main.js": "/cutremur77/static/js/runtime-main.b43abc2c.js",
     "runtime-main.js.map": "/cutremur77/static/js/runtime-main.b43abc2c.js.map",
     "static/js/2.bcbc8085.chunk.js": "/cutremur77/static/js/2.bcbc8085.chunk.js",
     "static/js/2.bcbc8085.chunk.js.map": "/cutremur77/static/js/2.bcbc8085.chunk.js.map",
     "index.html": "/cutremur77/index.html",
-    "precache-manifest.32778903ddcd5558d2c61173e5f38b6a.js": "/cutremur77/precache-manifest.32778903ddcd5558d2c61173e5f38b6a.js",
+    "precache-manifest.5a58cddee11402bd90b4775f89065097.js": "/cutremur77/precache-manifest.5a58cddee11402bd90b4775f89065097.js",
     "service-worker.js": "/cutremur77/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/cutremur77/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.bcbc8085.chunk.js.LICENSE.txt": "/cutremur77/static/js/2.bcbc8085.chunk.js.LICENSE.txt"
+    "static/js/2.bcbc8085.chunk.js.LICENSE.txt": "/cutremur77/static/js/2.bcbc8085.chunk.js.LICENSE.txt",
+    "static/media/Logo_Cutremur_Full.a3795e34.svg": "/cutremur77/static/media/Logo_Cutremur_Full.a3795e34.svg",
+    "static/media/Logo_Cutremur_Simbol.d45edee1.svg": "/cutremur77/static/media/Logo_Cutremur_Simbol.d45edee1.svg",
+    "static/media/Logo_simbol_CivicNet.7837839f.svg": "/cutremur77/static/media/Logo_simbol_CivicNet.7837839f.svg",
+    "static/media/logo_simbol_INFP.e0a9ec69.svg": "/cutremur77/static/media/logo_simbol_INFP.e0a9ec69.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b43abc2c.js",
     "static/js/2.bcbc8085.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.cc0e94fd.chunk.js"
+    "static/js/main.c971b1a5.chunk.js"
   ]
 }
