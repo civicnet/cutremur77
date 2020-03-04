@@ -155,7 +155,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
           <LineChart
             style={{
               position: "absolute",
-              top: 10,
+              top: 0,
               left: `${accelDataPadding}%`,
               width: `${accelDataWidth}%`
             }}
