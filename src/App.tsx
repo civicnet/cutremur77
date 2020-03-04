@@ -23,6 +23,11 @@ import { withRouter, RouteComponentProps, Route, Link } from "react-router-dom";
 import { loadCSS } from "fg-loadcss";
 import routes from "./routes";
 
+import { ReactComponent as LogoINFP } from "./logo_simbol_INFP.svg";
+import { ReactComponent as LogoCivicNet } from "./Logo_simbol_CivicNet.svg";
+import { ReactComponent as LogoCutremurSymbol } from "./Logo_Cutremur_Simbol.svg";
+import { ReactComponent as LogoCutremurFull } from "./Logo_Cutremur_Full.svg";
+
 const drawerWidth = 240;
 export const APP_BAR_COLOR = "#222f3e";
 
@@ -139,6 +144,12 @@ const useStyles = makeStyles(theme => ({
     marginTop: 12,
     fontSize: 16,
     fontWeight: "bold"
+  },
+  logo: {
+    width: "100%",
+    textAlign: "center",
+    marginBottom: 20,
+    display: "block"
   }
 }));
 
@@ -182,19 +193,7 @@ const App: React.FC<RouteComponentProps> = props => {
             /* href="https://civicnet.ro" */
             style={{ display: "flex", flex: 1, justifyContent: "center" }}
           >
-            {!isDrawerOpen ? (
-              <img
-                src="Logo_Cutremur_Simbol.svg"
-                style={{ height: 32 }}
-                alt="CivicNet Logo"
-              />
-            ) : (
-              <img
-                src="Logo_Cutremur_Full.svg"
-                style={{ height: 32 }}
-                alt="CivicNet Logo"
-              />
-            )}
+            {!isDrawerOpen ? <LogoCutremurSymbol /> : <LogoCutremurFull />}
           </Button>
           {/* <IconButton onClick={toggleDrawer}>
             {!isDrawerOpen ? (
@@ -225,6 +224,14 @@ const App: React.FC<RouteComponentProps> = props => {
             </ListItem>
           ))}
         </List>
+        <div style={{ position: "absolute", bottom: 20, width: "100%" }}>
+          <a className={classes.logo} href="http://www.infp.ro/">
+            <LogoINFP />
+          </a>
+          <a className={classes.logo} href="https://civicnet.ro">
+            <LogoCivicNet />
+          </a>
+        </div>
       </Drawer>
       <main>
         <div className="App">
