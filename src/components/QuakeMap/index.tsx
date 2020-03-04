@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 import { StaticMap } from "react-map-gl";
 import DeckGL from "@deck.gl/react";
-import { GeoJsonLayer } from "@deck.gl/layers";
+import { GeoJsonLayer, ScatterplotLayer, TextLayer } from "@deck.gl/layers";
 
 import { AppState } from "../../store";
 import { fetchWave } from "../../store/data/actions";
@@ -42,6 +42,23 @@ const initialViewState = {
   bearing: 0,
   pitch: 0
 };
+
+const scatterData = [
+  {
+    coords: {
+      lat: 44.44,
+      long: 26.16
+    },
+    name: "Stația seismică INCERC"
+  },
+  {
+    coords: {
+      lat: 45.77,
+      long: 26.76
+    },
+    name: "Epicentru"
+  }
+];
 
 interface Props {
   data: DataState;
@@ -150,11 +167,48 @@ export const ConnectedQuakeMap: React.FC<Props> = (props: Props) => {
     }
   });
 
+  const scatterLayer = new ScatterplotLayer({
+    id: "scatterplot-layer",
+    data: scatterData,
+    pickable: false,
+    filled: true,
+    radiusScale: 15,
+    radiusMinPixels: 1,
+    radiusMaxPixels: 100,
+    getPosition: (d: any) => [d.coords.long, d.coords.lat],
+    getFillColor: [255, 0, 0],
+    getRadius: 300
+  });
+
+  const characterSet = scatterData
+    .map(location => {
+      return location.name.split("");
+    })
+    .reduce((acc, arr) => {
+      arr.forEach(val => acc.push(val));
+      return acc;
+    }, []);
+
+  const labelLayer = new TextLayer({
+    id: "text-layer",
+    data: scatterData,
+    pickable: false,
+    getPosition: (d: any) => [d.coords.long, d.coords.lat],
+    getText: (d: any) => d.name,
+    getSize: 20,
+    getAngle: 0,
+    getTextAnchor: "middle",
+    getAlignmentBaseline: "bottom",
+    characterSet,
+    getPixelOffset: [0, -20],
+    getColor: [255, 230, 200]
+  });
+
   return (
     <DeckGL
       initialViewState={initialViewState}
       controller={true}
-      layers={[pWaveLayer, sWaveLayer]}
+      layers={[pWaveLayer, sWaveLayer, scatterLayer, labelLayer]}
     >
       <StaticMap
         width="100%"
