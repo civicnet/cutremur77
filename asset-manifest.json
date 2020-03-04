@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cutremur77/static/css/main.d1b05096.chunk.css",
-    "main.js": "/cutremur77/static/js/main.44b47a66.chunk.js",
-    "main.js.map": "/cutremur77/static/js/main.44b47a66.chunk.js.map",
+    "main.js": "/cutremur77/static/js/main.c4cf7b94.chunk.js",
+    "main.js.map": "/cutremur77/static/js/main.c4cf7b94.chunk.js.map",
     "runtime-main.js": "/cutremur77/static/js/runtime-main.b43abc2c.js",
     "runtime-main.js.map": "/cutremur77/static/js/runtime-main.b43abc2c.js.map",
     "static/js/2.cc9190c0.chunk.js": "/cutremur77/static/js/2.cc9190c0.chunk.js",
     "static/js/2.cc9190c0.chunk.js.map": "/cutremur77/static/js/2.cc9190c0.chunk.js.map",
     "index.html": "/cutremur77/index.html",
-    "precache-manifest.a169ec46a398a5b62e4000d42220b29b.js": "/cutremur77/precache-manifest.a169ec46a398a5b62e4000d42220b29b.js",
+    "precache-manifest.8bdfd0d231966ef34af6a07782b916b1.js": "/cutremur77/precache-manifest.8bdfd0d231966ef34af6a07782b916b1.js",
     "service-worker.js": "/cutremur77/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/cutremur77/static/css/main.d1b05096.chunk.css.map",
     "static/js/2.cc9190c0.chunk.js.LICENSE.txt": "/cutremur77/static/js/2.cc9190c0.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b43abc2c.js",
     "static/js/2.cc9190c0.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.44b47a66.chunk.js"
+    "static/js/main.c4cf7b94.chunk.js"
   ]
 }
