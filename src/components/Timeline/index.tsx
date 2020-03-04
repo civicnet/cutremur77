@@ -175,9 +175,15 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
           <div className={classes.controls}>
             <IconButton aria-label="playback" onClick={onAnimationPlayback}>
               {!props.ui.isPlaying ? (
-                <PlayArrowIcon fontSize="large" htmlColor="#eceac7" />
+                <PlayArrowIcon
+                  /* fontSize="large" */ style={{ fontSize: 48 }}
+                  htmlColor="#eceac7"
+                />
               ) : (
-                <PauseIcon fontSize="large" htmlColor="#eceac7" />
+                <PauseIcon
+                  /* fontSize="large" */ style={{ fontSize: 48 }}
+                  htmlColor="#eceac7"
+                />
               )}
             </IconButton>
             <Typography className={classes.clock}>
