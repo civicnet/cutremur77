@@ -59,6 +59,7 @@ export const Slider: React.FC<Props> = (props: Props) => {
           const labelVal = idx * 10;
           return (
             <Typography
+              key={`timestamp-${idx}`}
               onClick={() => props.jumpToTime(labelVal)}
               className={clsx(
                 classes.barLabels,

@@ -43,7 +43,7 @@ const ConnectedLineChart: React.FC<Props> = props => {
   return (
     <div style={{ ...props.style, flexDirection: "column" }}>
       {Object.keys(props.data.acceleration).map((key, idx) => (
-        <div>
+        <div key={key}>
           <span
             style={{
               position: "absolute",
@@ -57,7 +57,6 @@ const ConnectedLineChart: React.FC<Props> = props => {
             Accelerație {key} (cm/s<sup>2</sup>)
           </span>
           <VictoryLine
-            key={key}
             height={25}
             width={400}
             data={props.data.acceleration[key as AccelerationDirection].toJS()}
