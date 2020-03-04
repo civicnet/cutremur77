@@ -26,9 +26,6 @@ import { connect } from "react-redux";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: "flex",
-      flex: 1,
-      height: 100,
       position: "absolute",
       background: "#5B554D",
       width: "60vw",
@@ -36,6 +33,19 @@ const useStyles = makeStyles((theme: Theme) =>
       left: "20vw",
       padding: 8,
       paddingRight: 20
+    },
+    timelineContents: {
+      display: "flex",
+      flex: 1,
+      height: 84
+    },
+    title: {
+      color: "#38342F",
+      textAlign: "left",
+      fontWeight: "bold",
+      fontSize: 12,
+      marginBottom: 12,
+      textTransform: "uppercase"
     },
     debug: {
       position: "absolute",
@@ -46,6 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
       minHeight: 100
     },
     controls: {
+      height: "100%",
       alignSelf: "center",
       justifySelf: "center",
       minWidth: 80,
@@ -56,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bold",
       position: "absolute",
       width: "100%",
-      bottom: -16
+      bottom: -4
     }
   })
 );
@@ -133,34 +144,39 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
         </CardContent>
       </Card>
       <Paper className={classes.root} style={{}}>
-        <div className={classes.controls}>
-          <IconButton aria-label="playback" onClick={onAnimationPlayback}>
-            {!props.ui.isPlaying ? (
-              <PlayArrowIcon fontSize="large" htmlColor="#eceac7" />
-            ) : (
-              <PauseIcon fontSize="large" htmlColor="#eceac7" />
-            )}
-          </IconButton>
-          <Typography className={classes.clock}>
-            {clock.getHours()}:{clock.getMinutes()}:{" "}
-            <Typography
-              style={{ color: "#fff", fontSize: 12 }}
-              component="span"
-            >
-              {clock.getSeconds()}
+        <Typography component="h3" className={classes.title}>
+          Propagare seism 1977
+        </Typography>
+        <div className={classes.timelineContents}>
+          <div className={classes.controls}>
+            <IconButton aria-label="playback" onClick={onAnimationPlayback}>
+              {!props.ui.isPlaying ? (
+                <PlayArrowIcon fontSize="large" htmlColor="#eceac7" />
+              ) : (
+                <PauseIcon fontSize="large" htmlColor="#eceac7" />
+              )}
+            </IconButton>
+            <Typography className={classes.clock}>
+              {clock.getHours()}:{clock.getMinutes()}:{" "}
+              <Typography
+                style={{ color: "#fff", fontSize: 12 }}
+                component="span"
+              >
+                {clock.getSeconds()}
+              </Typography>
             </Typography>
-          </Typography>
+          </div>
+          <Slider progress={percentDone} timeElapsed={timeElapsed}>
+            <LineChart
+              style={{
+                position: "absolute",
+                top: 0,
+                left: `${accelDataPadding}%`,
+                width: `${accelDataWidth}%`
+              }}
+            />
+          </Slider>
         </div>
-        <Slider progress={percentDone} timeElapsed={timeElapsed}>
-          <LineChart
-            style={{
-              position: "absolute",
-              top: 0,
-              left: `${accelDataPadding}%`,
-              width: `${accelDataWidth}%`
-            }}
-          />
-        </Slider>
       </Paper>
     </>
   );
