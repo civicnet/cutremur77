@@ -110,7 +110,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
     let interval: any = null;
     if (props.ui.isPlaying) {
       interval = setInterval(() => {
-        setAnimationFrame(animationFrame + 2);
+        setAnimationFrame(animationFrame + 4);
 
         if (animationFrame * FRAME_DURATION >= TOTAL_DURATION) {
           props.pause();
@@ -157,7 +157,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      <Card className={classes.debug}>
+      {/* <Card className={classes.debug}>
         <CardContent>
           <Typography variant="body2" component="p">
             Frame #: <strong>{animationFrame}</strong>
@@ -166,7 +166,7 @@ export const ConnectedTimeline: React.FC<Props> = (props: Props) => {
             Time : <strong>{timeElapsed.toLocaleString("ro-RO")} sec</strong>
           </Typography>
         </CardContent>
-      </Card>
+      </Card> */}
       <Paper className={classes.root} style={{}}>
         <Typography component="h3" className={classes.title}>
           Propagare seism 1977
